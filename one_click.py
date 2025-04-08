@@ -249,8 +249,8 @@ def install_webui():
         choice = get_user_choice(
             "What is your GPU?",
             {
-                'A': 'NVIDIA - CUDA 12.1 (recommended)',
-                'B': 'NVIDIA - CUDA 11.8 (legacy GPUs)',
+                'A': 'NVIDIA - CUDA 12.8 (Blackwell 50-Series) <-- IF YOU DOWNLOADED THIS FORK, THIS IS WHAT YOU SHOULD CHOOSE.',
+                'B': 'NVIDIA - CUDA 11.8 (legacy GPUs) - If you want to use this or any of the below options, use oobabooga/text-generation-webui instead.',
                 'C': 'AMD - Linux/macOS only, requires ROCm 6.1',
                 'D': 'Apple M Series',
                 'E': 'Intel Arc (beta)',
@@ -291,13 +291,13 @@ def install_webui():
         sys.exit(1)
 
     # Find the Pytorch installation command
-    install_pytorch = f"python -m pip install torch=={TORCH_VERSION} torchvision=={TORCHVISION_VERSION} torchaudio=={TORCHAUDIO_VERSION} "
+    install_pytorch = f"python -m pip install --pre torch torchvision torchaudio "
 
     if selected_gpu == "NVIDIA":
         if use_cuda118 == 'Y':
             install_pytorch += "--index-url https://download.pytorch.org/whl/cu118"
         else:
-            install_pytorch += "--index-url https://download.pytorch.org/whl/cu121"
+            install_pytorch += "--index-url https://download.pytorch.org/whl/cu128"
     elif selected_gpu == "AMD":
         install_pytorch += "--index-url https://download.pytorch.org/whl/rocm6.1"
     elif selected_gpu in ["APPLE", "NONE"]:
@@ -340,7 +340,7 @@ def update_requirements(initial_installation=False, pull=True):
     # Create .git directory if missing
     if not os.path.exists(os.path.join(script_dir, ".git")):
         run_cmd(
-            "git init -b main && git remote add origin https://github.com/oobabooga/text-generation-webui && "
+            "git init -b main && git remote add origin https://github.com/nan0bug00/text-generation-webui && "
             "git fetch && git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main && "
             "git reset --hard origin/main && git branch --set-upstream-to=origin/main",
             environment=True,

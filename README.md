@@ -1,3 +1,26 @@
+# Experimental Fork for NVIDIA Blackwell GPU Support (RTX 50-Series) - CURRENTLY WINDOWS ONLY (Linux support coming soon!)
+This is a modified fork of [oobabooga/text-generation-webui](https://github.com/oobabooga/text-generation-webui) to implement support for NVIDIA Blackwell GPUs (RTX 50-series) with CUDA 12.8. It uses updated dependencies, and precompiled `cu128` wheels hosted at [nan0bug00/blackwell-wheels](https://github.com/nan0bug00/blackwell-wheels). **For the original project, see the upstream repository.**
+
+Note: **The intended install method for this fork is to clone this repo, then use `start_windows.bat`**.  This will set up the conda environment correctly (Python 3.12) and ensure that the correct dependencies are installed.  The other start scripts (WSL/Linux), and alternative install methods **will not currently install the correct dependencies for Blackwell support.**
+
+## Prerequisites (current)
+
+- An NVIDIA Blackwell GPU (RTX 50-series) with appropriate drivers (572.00 or later) installed.
+- Windows 10/11
+- [Git for Windows](https://git-scm.com/download/win)
+## To install
+
+1. Open a command prompt or PowerShell window.  Navigate to the directory where you want to clone the repository.  For example: `cd C:\Users\YourUsername\Documents\GitHub` (you can create this directory if it doesn't exist).
+1. Clone this repository: `git clone https://github.com/nan0bug00/text-generation-webui.git`
+2. Navigate to the cloned directory: `cd text-generation-webui`
+3. Run `start_windows.bat` to install the conda environment and dependencies.
+
+## Post Install
+
+1. Make any desired changes to `CMD_FLAGS.txt`
+2. Run `start_windows.bat` again to start the web UI.
+3. Navigate to `http://127.0.0.1:7860` in your web browser.
+
 # Text generation web UI
 
 A Gradio web UI for Large Language Models.

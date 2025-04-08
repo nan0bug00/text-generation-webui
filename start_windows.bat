@@ -25,8 +25,8 @@ set TEMP=%cd%\installer_files
 set INSTALL_DIR=%cd%\installer_files
 set CONDA_ROOT_PREFIX=%cd%\installer_files\conda
 set INSTALL_ENV_DIR=%cd%\installer_files\env
-set MINICONDA_DOWNLOAD_URL=https://repo.anaconda.com/miniconda/Miniconda3-py311_24.11.1-0-Windows-x86_64.exe
-set MINICONDA_CHECKSUM=43dcbcc315ff91edf959e002cd2f1ede38c64b999fefcc951bccf2ed69c9e8bb
+set MINICONDA_DOWNLOAD_URL=https://repo.anaconda.com/miniconda/Miniconda3-py312_25.1.1-2-Windows-x86_64.exe
+set MINICONDA_CHECKSUM=fb936987b769759fc852af1b2a0e359ac14620c2b7bea8a90c6d920f2b754c4a
 set conda_exists=F
 
 @rem figure out whether git and conda needs to be installed
@@ -72,10 +72,19 @@ if "%conda_exists%" == "F" (
 	del "%INSTALL_DIR%\miniconda_installer.exe"
 )
 
+@rem Check if existing environment is Python 3.12, remove if not
+if exist "%INSTALL_ENV_DIR%" (
+    "%INSTALL_ENV_DIR%\python.exe" --version | findstr "3.12" >nul
+    if errorlevel 1 (
+        echo Removing old environment to upgrade to Python 3.12...
+        rmdir /s /q "%INSTALL_ENV_DIR%"
+    )
+)
+
 @rem create the installer env
 if not exist "%INSTALL_ENV_DIR%" (
-	echo Packages to install: %PACKAGES_TO_INSTALL%
-	call "%CONDA_ROOT_PREFIX%\_conda.exe" create --no-shortcuts -y -k --prefix "%INSTALL_ENV_DIR%" python=3.11 || ( echo. && echo Conda environment creation failed. && goto end )
+    echo Packages to install: %PACKAGES_TO_INSTALL%
+    call "%CONDA_ROOT_PREFIX%\_conda.exe" create --no-shortcuts -y -k --prefix "%INSTALL_ENV_DIR%" python=3.12 || ( echo. && echo Conda environment creation failed. && goto end )
 )
 
 @rem check if conda environment was actually created

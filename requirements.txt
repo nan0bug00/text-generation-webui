@@ -3,15 +3,20 @@ bitsandbytes==0.45.*
 colorama
 datasets
 einops
-fastapi==0.112.4
-gradio==4.37.*
-jinja2==3.1.6
+fastapi<=0.112.4
+filelock==3.16.1
+fsspec==2024.10.0
+gradio<=4.44.1
+gradio_client<=1.3.0
+jinja2==3.1.4
 markdown
-numba==0.59.*
-numpy==1.26.*
+llvmlite==0.44.0
+networkx==3.4.2
+numba==0.61.0
+numpy==1.26.4
 pandas
 peft==0.12.*
-Pillow>=9.5.0
+pillow<=10.4.0
 psutil
 pydantic==2.8.2
 pyyaml
@@ -31,31 +36,7 @@ flask_cloudflared==0.0.14
 sse-starlette==1.6.5
 tiktoken
 
-# llama-cpp-python (CPU only, AVX2)
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/cpu/llama_cpp_python-0.3.8+cpuavx2-cp311-cp311-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.11"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/cpu/llama_cpp_python-0.3.8+cpuavx2-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/cpu/llama_cpp_python-0.3.8+cpuavx2-cp311-cp311-win_amd64.whl; platform_system == "Windows" and python_version == "3.11"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/cpu/llama_cpp_python-0.3.8+cpuavx2-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"
-
-# llama-cpp-python (CUDA, with GGML_CUDA_FORCE_MMQ)
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda-0.3.8+cu121-cp311-cp311-win_amd64.whl; platform_system == "Windows" and python_version == "3.11"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda-0.3.8+cu121-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda-0.3.8+cu121-cp311-cp311-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.11"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda-0.3.8+cu121-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
-
-# llama-cpp-python (CUDA, without GGML_CUDA_FORCE_MMQ)
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda_tensorcores-0.3.8+cu121-cp311-cp311-win_amd64.whl; platform_system == "Windows" and python_version == "3.11"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda_tensorcores-0.3.8+cu121-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda_tensorcores-0.3.8+cu121-cp311-cp311-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.11"
-https://github.com/oobabooga/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda_tensorcores-0.3.8+cu121-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
-
-# CUDA wheels
-https://github.com/oobabooga/exllamav2/releases/download/v0.2.8/exllamav2-0.2.8+cu121.torch2.4.1-cp311-cp311-win_amd64.whl; platform_system == "Windows" and python_version == "3.11"
-https://github.com/oobabooga/exllamav2/releases/download/v0.2.8/exllamav2-0.2.8+cu121.torch2.4.1-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"
-https://github.com/oobabooga/exllamav2/releases/download/v0.2.8/exllamav2-0.2.8+cu121.torch2.4.1-cp311-cp311-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.11"
-https://github.com/oobabooga/exllamav2/releases/download/v0.2.8/exllamav2-0.2.8+cu121.torch2.4.1-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
-https://github.com/oobabooga/exllamav2/releases/download/v0.2.8/exllamav2-0.2.8-py3-none-any.whl; platform_system == "Linux" and platform_machine != "x86_64"
-https://github.com/oobabooga/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu122torch2.4.1cxx11abiFALSE-cp311-cp311-win_amd64.whl; platform_system == "Windows" and python_version == "3.11"
-https://github.com/oobabooga/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu122torch2.4.1cxx11abiFALSE-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"
-https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu12torch2.4cxx11abiFALSE-cp311-cp311-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.11"
-https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu12torch2.4cxx11abiFALSE-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
+# Precompiled wheels for Python 3.12/CUDA 12.8 - WINDOWS X64 ONLY.
+https://github.com/nan0bug00/blackwell-wheels/exllamav2/releases/r1/exllamav2-0.1.0-cp312-cp312-win_amd64.whl
+https://github.com/nan0bug00/blackwell-wheels/flash-attention/r1/flash_attention-2.6.0-cp312-cp312-win_amd64.whl
+https://github.com/nan0bug00/blackwell-wheels/llama-cpp-python/r1/llama_cpp_python_cuda-0.3.8-cp312-cp312-win_amd64.whl
