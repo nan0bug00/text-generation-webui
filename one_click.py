@@ -104,11 +104,13 @@ def torch_version():
 def update_pytorch():
     print_big_message("Checking for PyTorch updates.")
     torver = torch_version()
-    base_cmd = f"python -m pip install --upgrade torch=={TORCH_VERSION} torchvision=={TORCHVISION_VERSION} torchaudio=={TORCHAUDIO_VERSION}"
+    base_cmd = f"python -m pip install --upgrade torch torchvision torchaudio"  # Remove pinned versions for nightlies
 
-    if "+cu118" in torver:
+    if "+cu128" in torver:
+        install_cmd = f"{base_cmd} --pre --index-url https://download.pytorch.org/whl/nightly/cu128"
+    elif "+cu118" in torver:
         install_cmd = f"{base_cmd} --index-url https://download.pytorch.org/whl/cu118"
-    elif "+cu" in torver:
+    elif "+cu" in torver:  # Fallback for other CUDA (e.g., cu121)
         install_cmd = f"{base_cmd} --index-url https://download.pytorch.org/whl/cu121"
     elif "+rocm" in torver:
         install_cmd = f"{base_cmd} --index-url https://download.pytorch.org/whl/rocm6.1"
@@ -297,7 +299,7 @@ def install_webui():
         if use_cuda118 == 'Y':
             install_pytorch += "--index-url https://download.pytorch.org/whl/cu118"
         else:
-            install_pytorch += "--index-url https://download.pytorch.org/whl/cu128"
+            install_pytorch += "--index-url https://download.pytorch.org/whl/nightly/cu128"
     elif selected_gpu == "AMD":
         install_pytorch += "--index-url https://download.pytorch.org/whl/rocm6.1"
     elif selected_gpu in ["APPLE", "NONE"]:
