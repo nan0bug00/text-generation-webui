@@ -8,6 +8,7 @@ Note: **The intended install method for this fork is to clone this repo, then us
 - An NVIDIA Blackwell GPU (RTX 50-series) with appropriate drivers (572.00 or later) installed.
 - Windows 10/11
 - [Git for Windows](https://git-scm.com/download/win)
+
 ## To install
 
 1. Open a command prompt or PowerShell window.  Navigate to the directory where you want to clone the repository.  For example: `cd C:\Users\YourUsername\Documents\GitHub` (you can create this directory if it doesn't exist).
