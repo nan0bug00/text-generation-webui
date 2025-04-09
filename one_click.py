@@ -104,7 +104,7 @@ def torch_version():
 def update_pytorch():
     print_big_message("Checking for PyTorch updates.")
     torver = torch_version()
-    base_cmd = f"python -m pip install --upgrade torch torchvision torchaudio"  # Remove pinned versions for nightlies
+    base_cmd = f"python -m pip install --upgrade torch==2.8.0.dev20250406+cu128 torchvision==0.22.0.dev20250407+cu128 torchaudio==2.6.0.dev20250407+cu128"
 
     if "+cu128" in torver:
         install_cmd = f"{base_cmd} --pre --index-url https://download.pytorch.org/whl/nightly/cu128"
