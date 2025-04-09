@@ -293,7 +293,7 @@ def install_webui():
         sys.exit(1)
 
     # Find the Pytorch installation command
-    install_pytorch = f"python -m pip install --pre torch torchvision torchaudio "
+    install_pytorch = f"python -m pip install --pre torch==2.8.0.dev20250406+cu128 torchvision==0.22.0.dev20250407+cu128 torchaudio==2.6.0.dev20250407+cu128 "
 
     if selected_gpu == "NVIDIA":
         if use_cuda118 == 'Y':
