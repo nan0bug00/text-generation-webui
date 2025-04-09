@@ -37,6 +37,6 @@ sse-starlette==1.6.5
 tiktoken
 
 # Precompiled wheels for Python 3.12/CUDA 12.8 - WINDOWS X64 ONLY.
-https://raw.githubusercontent.com/nan0bug00/blackwell-wheels/main/exllamav2/r1/exllamav2-0.2.8-cp312-cp312-win_amd64.whl
-https://raw.githubusercontent.com/nan0bug00/blackwell-wheels/main/flash-attention/r1/flash_attention-2.7.3-cp312-cp312-win_amd64.whl
-https://raw.githubusercontent.com/nan0bug00/blackwell-wheels/main/llama-cpp-python/r1/llama_cpp_python_cuda-0.3.8-cp312-cp312-win_amd64.whl
+https://github.com/nan0bug00/blackwell-wheels/releases/download/r1/exllamav2-0.2.8-cp312-cp312-win_amd64.whl
+https://github.com/nan0bug00/blackwell-wheels/releases/download/r1/flash_attn-2.7.3-cp312-cp312-win_amd64.whl
+https://github.com/nan0bug00/blackwell-wheels/releases/download/r1/llama_cpp_python-0.3.8-cp312-cp312-win_amd64.whl
